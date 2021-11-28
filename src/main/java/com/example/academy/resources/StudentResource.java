@@ -20,7 +20,7 @@ public class StudentResource {
     }
 
     @GetMapping("/{registration}")
-    public Student getStudentById(@PathVariable(value="registration") long registration){
+    public Student getStudentByRegistration(@PathVariable(value="registration") long registration){
         return studentRepository.findByRegistration(registration);
     }
 
