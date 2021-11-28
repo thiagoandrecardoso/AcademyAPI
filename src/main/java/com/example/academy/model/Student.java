@@ -1,7 +1,6 @@
 package com.example.academy.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -20,6 +19,7 @@ public class Student implements Serializable {
     private double socre;
 
     @ManyToOne
+    @JsonIgnore
     private Team team;
 
     public long getRegistration() {

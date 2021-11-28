@@ -17,7 +17,7 @@ public class StudentResource {
     StudentRepository studentRepository;
 
     @GetMapping("/list")
-    public List<Student> studentList(){
+    public List<Student> studentList() {
         return studentRepository.findAll();
     }
 }

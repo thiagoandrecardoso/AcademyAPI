@@ -17,7 +17,7 @@ public class TeamResource {
     TeamRepository teamRepository;
 
     @GetMapping("/teams")
-    public List<Team> getTeamLiist(){
+    public List<Team> getTeamLiist() {
         return teamRepository.findAll();
     }
 
