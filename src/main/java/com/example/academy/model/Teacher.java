@@ -1,5 +1,7 @@
 package com.example.academy.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -16,6 +18,7 @@ public class Teacher implements Serializable {
     private String name;
 
     @OneToOne
+    @JsonIgnore
     private Team team;
 
     public long getId() {

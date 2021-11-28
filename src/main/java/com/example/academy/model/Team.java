@@ -1,6 +1,7 @@
 package com.example.academy.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
@@ -19,7 +20,7 @@ public class Team implements Serializable {
 
     private String name;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "team")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "team", fetch = FetchType.LAZY)
     private List<Student> studentList;
 
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "team")
