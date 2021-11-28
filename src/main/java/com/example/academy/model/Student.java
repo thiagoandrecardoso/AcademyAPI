@@ -14,8 +14,8 @@ public class Student implements Serializable {
     private long registration;
 
     private String name;
-
     private String email;
+    private double socre;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "team_id")
@@ -53,4 +53,11 @@ public class Student implements Serializable {
         this.team = team;
     }
 
+    public double getSocre() {
+        return socre;
+    }
+
+    public void setSocre(double socre) {
+        this.socre = socre;
+    }
 }
