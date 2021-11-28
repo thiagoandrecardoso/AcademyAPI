@@ -1,5 +1,8 @@
 package com.example.academy.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -16,11 +19,10 @@ public class Team implements Serializable {
 
     private String name;
 
-    @OneToMany(mappedBy = "team")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "team")
     private List<Student> studentList;
 
-    @OneToOne(mappedBy = "team", cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY, optional = false)
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "team")
     private Teacher teacher;
 
     public long getId() {

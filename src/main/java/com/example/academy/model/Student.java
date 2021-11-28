@@ -1,5 +1,7 @@
 package com.example.academy.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -17,8 +19,7 @@ public class Student implements Serializable {
     private String email;
     private double socre;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "team_id")
+    @ManyToOne
     private Team team;
 
     public long getRegistration() {

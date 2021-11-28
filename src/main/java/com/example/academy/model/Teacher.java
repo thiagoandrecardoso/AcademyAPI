@@ -15,8 +15,7 @@ public class Teacher implements Serializable {
 
     private String name;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "team_id")
+    @OneToOne
     private Team team;
 
     public long getId() {
