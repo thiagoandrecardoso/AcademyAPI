@@ -1,5 +1,7 @@
 package com.example.academy.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -14,6 +16,10 @@ public class Activity implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String name;
+
+    @ManyToOne
+    @JsonIgnore
+    private Team team;
 
     @Temporal(TemporalType.DATE)
     private Date deadline;
@@ -50,5 +56,13 @@ public class Activity implements Serializable {
 
     public void setMaxScore(double maxScore) {
         this.maxScore = maxScore;
+    }
+
+    public Team getTeam() {
+        return team;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
     }
 }

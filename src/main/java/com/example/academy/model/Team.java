@@ -19,6 +19,9 @@ public class Team implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "team", fetch = FetchType.LAZY)
     private List<Student> studentList;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "team", fetch = FetchType.LAZY)
+    private List<Activity> activityList;
+
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "team")
     private Teacher teacher;
 
@@ -52,5 +55,13 @@ public class Team implements Serializable {
 
     public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
+    }
+
+    public List<Activity> getActivityList() {
+        return activityList;
+    }
+
+    public void setActivityList(List<Activity> activityList) {
+        this.activityList = activityList;
     }
 }
