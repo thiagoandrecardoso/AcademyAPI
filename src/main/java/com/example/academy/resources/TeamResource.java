@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/api")
+@RequestMapping(value = "/teams")
 public class TeamResource {
 
     @Autowired
     TeamRepository teamRepository;
 
-    @GetMapping("/teams")
+    @GetMapping("/list")
     public List<Team> getTeamLiist() {
         return teamRepository.findAll();
     }
@@ -26,6 +26,16 @@ public class TeamResource {
 
     @PostMapping("/save")
     public Team saveTeam(@RequestBody Team team){
+        return teamRepository.save(team);
+    }
+
+    @DeleteMapping("/delete")
+    public void deleteTeam(@RequestBody Team team){
+        teamRepository.delete(team);
+    }
+
+    @PutMapping("/update")
+    public Team updateTeam(@RequestBody Team team){
         return teamRepository.save(team);
     }
 
