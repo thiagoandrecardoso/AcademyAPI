@@ -6,10 +6,25 @@
     <title>Aluno</title>
 </head>
 <body>
-    <h1>Aluno:</h1>
-    <h2 th:text="${student.registration}">:</h2>
-    <h2 th:text="${student.name}"></h2>
-    <h2 th:text="${student.email}"></h2>
-    <h2 th:text="${student.socre}"></h2>
+<h1>Aluno:</h1>
+<table class="container">
+    <thead>
+    <tr>
+        <th>Matricula:</th>
+        <th>Nome:</th>
+        <th>E-mail:</th>
+        <th>Nota:</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><span th:text="${student.registration}"></span></td>
+        <td><span th:text="${student.name}"></span></td>
+        <td><span th:text="${student.email}"></span></td>
+        <td><span th:text="${student.socre}"></span></td>
+    </tr>
+    </tbody>
+</table>
+
 </body>
 </html>
