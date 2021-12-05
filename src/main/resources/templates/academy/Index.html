@@ -5,10 +5,13 @@
     <title>Sistema Acadêmico</title>
 </head>
 <h1>Sistema Acadêmico</h1>
+
 <body>
 <h1>Matricula</h1>
 <div>
-    <a href="/getstudent/0" class="waves-effect waves-light btn">Acessa aluno</a>
+    <label for="txtRegistration"></label><input type="text" id="txtRegistration"/>
+    <a href = "javascript:" onclick = "this.href='/getstudent/' + document.getElementById('txtRegistration').value">Send</a>
 </div>
 </body>
+
 </html>
