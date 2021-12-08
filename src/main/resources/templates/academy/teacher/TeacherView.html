@@ -5,13 +5,12 @@
     <title>Title</title>
 </head>
 <body>
-    <div>
-        <h2><span th:text="${teacher.name}"></span></h2>
-    </div>
-
-    <form method="POST" action="upload" enctype="multipart/form-data">
-        <input type="file" name="file" /><br/>
-        <input type="submit" value="Submit" />
-    </form>
+<div>
+    <h2><span th:text="${teacher.name}"></span></h2>
+</div>
+<form action="upload" enctype="multipart/form-data" method="POST">
+    <input name="file" type="file"/><br/>
+    <input type="submit" value="Submit"/>
+</form>
 </body>
 </html>

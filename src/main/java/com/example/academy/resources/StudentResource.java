@@ -20,22 +20,22 @@ public class StudentResource {
     }
 
     @GetMapping("/{registration}")
-    public Student getStudentByRegistration(@PathVariable(value="registration") long registration){
+    public Student getStudentByRegistration(@PathVariable(value = "registration") long registration) {
         return studentRepository.findByRegistration(registration);
     }
 
     @PostMapping("/save")
-    public Student saveStudent(@RequestBody Student student){
+    public Student saveStudent(@RequestBody Student student) {
         return studentRepository.save(student);
     }
 
     @DeleteMapping("/delete")
-    public void deleteStudent(@RequestBody Student student){
+    public void deleteStudent(@RequestBody Student student) {
         studentRepository.delete(student);
     }
 
     @PutMapping("/update")
-    public void updateStudent(@RequestBody Student student){
+    public void updateStudent(@RequestBody Student student) {
         studentRepository.delete(student);
     }
 }

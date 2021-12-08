@@ -12,13 +12,16 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.io.IOException;
+
 @Controller
 public class TeacherController {
+
     @Autowired
     private TeacherRepository teacherRepository;
 
     @RequestMapping("/teacherOpenFile/{id}")
-    public ModelAndView accessTeacher(@PathVariable(value = "id") long id){
+    public ModelAndView accessTeacher(@PathVariable(value = "id") long id) {
         ModelAndView mv = new ModelAndView("academy/teacher/TeacherView");
         Teacher teacher = teacherRepository.findById(id);
         mv.addObject("teacher", teacher);
@@ -29,6 +32,24 @@ public class TeacherController {
     public String singleFileUpload(@RequestParam("file") MultipartFile file,
                                    RedirectAttributes redirectAttributes) {
 
-        return "/";
+        if (file.isEmpty()) {
+            redirectAttributes.addFlashAttribute("message", "Please select a file to upload");
+            return "redirect:uploadStatus";
+        }
+
+        try {
+            /**
+             * Recebe os caracteres em decimal
+             */
+            byte[] bytes = file.getBytes();
+
+            redirectAttributes.addFlashAttribute("message",
+                    "You successfully uploaded '" + file.getOriginalFilename() + "'");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return "redirect:/teacherOpenFile/1";
     }
 }

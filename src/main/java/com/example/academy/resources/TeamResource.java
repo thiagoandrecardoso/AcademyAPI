@@ -20,22 +20,22 @@ public class TeamResource {
     }
 
     @GetMapping("/{id}")
-    public Team getTeamById(@PathVariable(value = "id") long id){
+    public Team getTeamById(@PathVariable(value = "id") long id) {
         return teamRepository.findById(id);
     }
 
     @PostMapping("/save")
-    public Team saveTeam(@RequestBody Team team){
+    public Team saveTeam(@RequestBody Team team) {
         return teamRepository.save(team);
     }
 
     @DeleteMapping("/delete")
-    public void deleteTeam(@RequestBody Team team){
+    public void deleteTeam(@RequestBody Team team) {
         teamRepository.delete(team);
     }
 
     @PutMapping("/update")
-    public Team updateTeam(@RequestBody Team team){
+    public Team updateTeam(@RequestBody Team team) {
         return teamRepository.save(team);
     }
 

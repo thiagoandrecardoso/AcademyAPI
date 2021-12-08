@@ -15,7 +15,7 @@ public class StudentController {
     private StudentRepository studentRepository;
 
     @RequestMapping(value = "/getstudent/{registration}")
-    public ModelAndView studentByRegistration(@PathVariable(value = "registration") long registration){
+    public ModelAndView studentByRegistration(@PathVariable(value = "registration") long registration) {
         ModelAndView mv = new ModelAndView("academy/students/StudentView");
         Student student = studentRepository.findByRegistration(registration);
         mv.addObject("student", student);
