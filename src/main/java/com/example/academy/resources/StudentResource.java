@@ -36,6 +36,6 @@ public class StudentResource {
 
     @PutMapping("/update")
     public void updateStudent(@RequestBody Student student) {
-        studentRepository.delete(student);
+        studentRepository.save(student);
     }
 }

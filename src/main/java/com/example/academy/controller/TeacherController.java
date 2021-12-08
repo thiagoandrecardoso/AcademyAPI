@@ -1,6 +1,8 @@
 package com.example.academy.controller;
 
+import com.example.academy.model.Student;
 import com.example.academy.model.Teacher;
+import com.example.academy.repository.StudentRepository;
 import com.example.academy.repository.TeacherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,12 +15,18 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class TeacherController {
 
     @Autowired
     private TeacherRepository teacherRepository;
+
+    @Autowired
+    private StudentRepository studentRepository;
+    private List<Student> studentList = new ArrayList<>();
 
     @RequestMapping("/teacherOpenFile/{id}")
     public ModelAndView accessTeacher(@PathVariable(value = "id") long id) {
@@ -45,6 +53,9 @@ public class TeacherController {
 
             for (String s : splitLine){
                 String[] regAndScore = s.split(" ");
+                Student student = studentRepository.findByRegistration(Long.parseLong(regAndScore[0]));
+                student.setSocre(Double.parseDouble(regAndScore[1]));
+                studentRepository.save(student);
             }
 
             redirectAttributes.addFlashAttribute("message",
