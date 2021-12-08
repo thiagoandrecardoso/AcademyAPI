@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <title>Sistema Acadêmico</title>
+    <style type="text/css">
+        .systemA {
+            position: absolute;
+            background-image: linear-gradient(to right, rgb(86, 38, 137), rgb(46, 0, 79));
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 5%;
+            padding: 15px;
+        }
+
+        .inputUser {
+            background: none;
+            border: none;
+            border-bottom: 1px solid white;
+            outline: none;
+            color: white;
+            font-size: 23px;
+            width: 100%;
+            letter-spacing: 2px;
+        }
+
+        .button {
+            background-color: rgba(0, 0, 0, 0.4);
+            border: none;
+            color: white;
+            padding: 20px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: flex;
+            font-size: 20px;
+            margin: 10px 2px;
+            cursor: pointer;
+            align-items: center;
+            border-radius: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-family: "Lucida Console", sans-serif;
+        }
+
+        h2 {
+            text-align: center;
+            color: white;
+            font-family: "Lucida Console", sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+<div class="systemA">
+    <h1>Sistema Acadêmico</h1>
+    <h2>Espaço Aluno - digite sua matricula:</h2>
+    <label for="txtRegistration"></label><input class="inputUser" id="txtRegistration" type="text"/>
+    <a class="button" href="javascript:"
+       onclick="this.href='/getstudent/' + document.getElementById('txtRegistration').value">Entrar</a>
+    <br/>
+    <h2>Espaço Professor</h2>
+    <a class="button" href="javascript:" onclick="this.href='/teacherOpenFile/1'">Acessar</a>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .form-csv {
+            position: absolute;
+            background-image: linear-gradient(to right, rgb(86, 38, 137), rgb(46, 0, 79));
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 5%;
+            padding: 15px;
+        }
+        h2 {
+            text-align: center;
+            color: white;
+            font-family: "Lucida Console", sans-serif;
+        }
+        .button {
+            background-color: rgba(0, 0, 0, 0.4);
+            border: none;
+            color: white;
+            padding: 20px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: flex;
+            font-size: 20px;
+            margin: 10px 2px;
+            cursor: pointer;
+            align-items: center;
+            border-radius: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-csv">
+    <h2><span th:text="${teacher.name}"></span></h2>
+    <form action="upload" enctype="multipart/form-data" method="POST">
+        <input class="button" name="file" type="file"/><br/>
+        <input class="button" type="submit" value="Submit"/>
+        <a class="button" href="javascript:" onclick="this.href='/'">Voltar</a>
+    </form>
+</div>
+</body>
+</html>
