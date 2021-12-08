@@ -26,7 +26,6 @@ public class TeacherController {
 
     @Autowired
     private StudentRepository studentRepository;
-    private List<Student> studentList = new ArrayList<>();
 
     @RequestMapping("/teacherOpenFile/{id}")
     public ModelAndView accessTeacher(@PathVariable(value = "id") long id) {
@@ -71,9 +70,8 @@ public class TeacherController {
     public String decimalToCharASCII(byte[] bytes){
         StringBuilder charAscii;
         charAscii = new StringBuilder();
-        for (byte aByte : bytes) {
-            charAscii.append(Character.toString((char) aByte));
-        }return charAscii.toString();
+        for (byte aByte : bytes) charAscii.append(Character.toString((char) aByte));
+        return charAscii.toString();
     }
 
     public String[] splitLine(String csvText){
