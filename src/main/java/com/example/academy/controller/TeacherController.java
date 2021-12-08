@@ -28,7 +28,7 @@ public class TeacherController {
         return mv;
     }
 
-    @PostMapping("/teacherOpenFile/upload") // //new annotation since 4.3
+    @PostMapping("/teacherOpenFile/upload")
     public String singleFileUpload(@RequestParam("file") MultipartFile file,
                                    RedirectAttributes redirectAttributes) {
 
@@ -38,10 +38,14 @@ public class TeacherController {
         }
 
         try {
-            /**
-             * Recebe os caracteres em decimal
-             */
             byte[] bytes = file.getBytes();
+
+            String csvText = decimalToCharASCII(bytes);
+            String[] splitLine = splitLine(csvText);
+
+            for (String s : splitLine){
+                String[] regAndScore = s.split(" ");
+            }
 
             redirectAttributes.addFlashAttribute("message",
                     "You successfully uploaded '" + file.getOriginalFilename() + "'");
@@ -52,4 +56,17 @@ public class TeacherController {
 
         return "redirect:/teacherOpenFile/1";
     }
+
+    public String decimalToCharASCII(byte[] bytes){
+        StringBuilder charAscii;
+        charAscii = new StringBuilder();
+        for (byte aByte : bytes) {
+            charAscii.append(Character.toString((char) aByte));
+        }return charAscii.toString();
+    }
+
+    public String[] splitLine(String csvText){
+        return csvText.split("\n");
+    }
+
 }
